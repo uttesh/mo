@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const chalk = require("chalk");
 const clear = require("clear");
 const figlet = require("figlet");
@@ -7,6 +8,9 @@ const fs = require("fs");
 const path = require("path");
 const clui = require("clui");
 const os = require("os");
+const art = require("ascii-art");
+
+art.style("testing");
 
 /**
  * Get the size
@@ -144,7 +148,7 @@ const questions = [
     name: "option",
     type: "input",
     message:
-      "Please select option: \n 1) Search all the node_module present in the path and total memory take? \n 2) Search and delete the node_modules? \n Enter the option: ",
+      "Please select a option: \n\n 1) Search all the node_modules present in the path and show the total memory taken? \n\n 2) Search and delete all the node_modules present in the path? \n\n Enter the option(1 or 2): ",
     validate: function (value) {
       if (value.length) {
         return true;
@@ -219,7 +223,7 @@ deletefn = (path) => {
   const exec = require("child_process").exec;
   let command = getRemoveCommand();
   exec(command, { cwd: path }, async (error, stdout, stderr) => {
-    console.log("Deleted Successully: ", stdout);
+    console.log(chalk.green("Deleted Successully."));
     if (error | stderr) {
       console.err(error | stderr);
     }

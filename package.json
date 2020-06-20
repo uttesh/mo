@@ -1,10 +1,13 @@
 {
 	"name": "mo_cli",
 	"version": "1.0.0",
-	"description": "simple node_module remover",
+	"description": "simple node_modules remover",
 	"main": "mo_cli",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"bin": {
+		"mo": "./index.js"
 	},
 	"keywords": [
 		"delete",
