@@ -8,7 +8,28 @@ const fs = require("fs");
 const path = require("path");
 const clui = require("clui");
 const os = require("os");
+Spinner = clui.Spinner;
+let searchSpinner = new Spinner("Searching...  ", [
+  "⣾",
+  "⣽",
+  "⣻",
+  "⢿",
+  "⡿",
+  "⣟",
+  "⣯",
+  "⣷",
+]);
 
+let deleteSpinner = new Spinner("Deleting node_modules files...  ", [
+  "⣾",
+  "⣽",
+  "⣻",
+  "⢿",
+  "⡿",
+  "⣟",
+  "⣯",
+  "⣷",
+]);
 /**
  * Get the size
  */
@@ -106,6 +127,10 @@ printTableRow = (data) => {
  */
 processPath = async (paths) => {
   var uniqueItems = Array.from(new Set(paths));
+  if (uniqueItems.length > 0) {
+    searchSpinner.stop();
+    console.log("Found ", uniqueItems.length + " items");
+  }
   for (let i = 0; i < uniqueItems.length; i++) {
     let path = uniqueItems[i];
     if (path && path.length > 0) {
@@ -198,6 +223,7 @@ getRemoveCommand = () => {
  * search function for the node_modules and process for the size
  */
 searchfn = (path) => {
+  searchSpinner.start();
   const exec = require("child_process").exec;
   let command = getSearchCommand();
   let paths = [];
@@ -220,7 +246,8 @@ deletefn = (path) => {
   const exec = require("child_process").exec;
   let command = getRemoveCommand();
   exec(command, { cwd: path }, async (error, stdout, stderr) => {
-    console.log(chalk.green("Deleted Successully."));
+    deleteSpinner.stop();
+    console.log(chalk.green("Deleted node_modules files successfully."));
     if (error | stderr) {
       console.err(error | stderr);
     }
@@ -235,6 +262,7 @@ const run = async () => {
     searchfn(selection.path);
   }
   if (selection.option === "2") {
+    deleteSpinner.start();
     deletefn(selection.path);
   }
 };
