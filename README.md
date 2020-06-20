@@ -1,12 +1,12 @@
 # mo.js
 
-mo-clean is cli application to removes the unused node_modules from the system
-
 <p align="center">
-<img src="https://raw.githubusercontent.com/uttesh/mo/master/images/m-o.png" alt="logo" style="margin-left:20%" width="300"/>
+<img src="https://raw.githubusercontent.com/uttesh/mo/master/images/m-o.png" alt="logo" style="margin-left:2%" width="300"/>
 </p>
 
-### installation
+mo-clean is cli application to removes the unused node_modules from the system
+
+### Installation
 
 Please install the package with flag '-g'.
 
