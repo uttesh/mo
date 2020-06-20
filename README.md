@@ -6,7 +6,7 @@
 
 <i>mo-clean</i> is cli application to removes the unused node_modules from the system.
 
-Its an 8 hours hackathon development on the weekend (20th June 2020)!!! to challenging myself to write a simple application from scratch to live.
+Its an 8 hours hackathon development on the weekend (20th June 2020!) to challenge myself to write an simple application from scratch to live.
 
 A little history on this utility app and the name is, I liked the character <b>'MO'</b> in the movie <b><i>'WALL E'</i></b>, MO is a simple cleaning robot in the movie. This 'MO' will clean the unused/practiced project node_modules.
 
@@ -59,4 +59,3 @@ It will search all the node_modules present under the provided path.
 It will search all the node_modules present under the provided path and delete them.
 
 ![demo](https://raw.githubusercontent.com/uttesh/mo/master/images/delete_screen.png)
-
