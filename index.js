@@ -6,14 +6,11 @@ const async = require("async");
 const fs = require("fs");
 const path = require("path");
 const clui = require("clui");
-const clc = require("cli-color");
 const os = require("os");
-const { search } = require("cli-color/beep");
 
 /**
  * Get the size
  */
-
 const getSize = async (item, callback) => {
   let totalSize = 0;
 
@@ -46,7 +43,9 @@ const getSize = async (item, callback) => {
     }
   });
 };
-
+/**
+ * format for the bytes
+ */
 formatBytes = async (bytes, decimals = 2) => {
   if (bytes === 0) return "0 Bytes";
 
@@ -59,6 +58,9 @@ formatBytes = async (bytes, decimals = 2) => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
 };
 
+/**
+ * Generate a empty space string for the padding
+ */
 generatePadding = (size) => {
   let space = " ";
   for (let z = 0; z < size; z++) {
@@ -66,7 +68,9 @@ generatePadding = (size) => {
   }
   return space;
 };
-
+/**
+ * generate a line as per the result padding and length
+ */
 generateline = (size) => {
   let line = "-";
   for (let z = 0; z < size; z++) {
@@ -75,6 +79,9 @@ generateline = (size) => {
   return line;
 };
 
+/**
+ * Generate a generic table display
+ */
 printGenericTable = (data) => {
   let padding = generatePadding(100 - data[0].length);
   let lineData = " | " + data[0] + padding + "| " + data[1];
@@ -83,6 +90,9 @@ printGenericTable = (data) => {
   console.log(line);
 };
 
+/**
+ * draw a result data row
+ */
 Line = clui.Line;
 printTableRow = (data) => {
   let tempValue = data[1].split(" ")[0];
@@ -90,9 +100,11 @@ printTableRow = (data) => {
   new Line().padding(2).column(data[0], 80).column(value, 20).fill().output();
 };
 
+/**
+ * process the provided path
+ */
 processPath = async (paths) => {
   var uniqueItems = Array.from(new Set(paths));
-  console.log("total items: ", uniqueItems.length);
   for (let i = 0; i < uniqueItems.length; i++) {
     let path = uniqueItems[i];
     if (path && path.length > 0) {
@@ -101,6 +113,9 @@ processPath = async (paths) => {
   }
 };
 
+/**
+ * find the provided path size value
+ */
 getPathSize = async (path) => {
   await getSize(path, async (err, totalSize) => {
     if (!err) {
@@ -109,8 +124,6 @@ getPathSize = async (path) => {
       let size = await formatBytes(totalSize);
       temparray.push(size);
       printTableRow(temparray);
-      // table.push(temparray);
-      //console.log("path: ", path, "size: ", size);
     } else {
       console.err(err);
     }
@@ -123,6 +136,9 @@ console.log(
   chalk.yellow(figlet.textSync("MO...", { horizontalLayout: "full" }))
 );
 
+/**
+ * Questions set
+ */
 const questions = [
   {
     name: "option",
@@ -151,6 +167,9 @@ const questions = [
   },
 ];
 
+/**
+ * Search for the node_modules
+ */
 getSearchCommand = () => {
   let command = "";
   if (os.platform() === "win32") {
@@ -161,6 +180,9 @@ getSearchCommand = () => {
   return command;
 };
 
+/**
+ * Remove node_modules
+ */
 getRemoveCommand = () => {
   let command = "";
   if (os.platform() === "win32") {
@@ -171,6 +193,9 @@ getRemoveCommand = () => {
   return command;
 };
 
+/**
+ * search function for the node_modules and process for the size
+ */
 searchfn = (path) => {
   const exec = require("child_process").exec;
   let command = getSearchCommand();
@@ -187,6 +212,9 @@ searchfn = (path) => {
   });
 };
 
+/**
+ * search the node_module and remove from the system
+ */
 deletefn = (path) => {
   const exec = require("child_process").exec;
   let command = getRemoveCommand();
@@ -197,10 +225,11 @@ deletefn = (path) => {
     }
   });
 };
-
+/**
+ * Initial execution of the process
+ */
 const run = async () => {
   const selection = await inquirer.prompt(questions);
-  console.log("selection: ", selection);
   if (selection.option === "1") {
     searchfn(selection.path);
   }
