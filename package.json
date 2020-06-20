@@ -1,8 +1,8 @@
 {
-  "name": "mo",
-  "version": "2.0.0",
+  "name": "mo_clean",
+  "version": "1.0.0",
   "description": "simple node_modules remover",
-  "main": "mo",
+  "main": "mo_clean",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
