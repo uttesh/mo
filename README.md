@@ -1,7 +1,7 @@
 # mo.js
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/uttesh/mo/master/images/m-o.png" alt="logo" style="margin-left:2%" width="300"/>
+<img src="https://raw.githubusercontent.com/uttesh/mo/master/images/logo.png" alt="logo" style="margin-left:2%" width="300"/>
 </p>
 
 mo-clean is cli application to removes the unused node_modules from the system
