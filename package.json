@@ -1,37 +1,37 @@
 {
-	"name": "mo-clean",
-	"version": "2.0.0",
-	"description": "simple node_modules remover",
-	"main": "mo-clean",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/uttesh/mo.git"
-	},
-	"bin": {
-		"mo": "./index.js",
-		"mo-clean": "./index.js"
-	},
-	"keywords": [
-		"delete node_modules",
-		"node_modules",
-		"remove node_modules"
-	],
-	"author": "Uttesh Kumar T.H.",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/uttesh/mo/issues"
-	},
-	"dependencies": {
-		"async": "^3.2.0",
-		"chalk": "^4.1.0",
-		"clear": "^0.1.0",
-		"cli-color": "^2.0.0",
-		"clui": "^0.3.6",
-		"figlet": "^1.4.0",
-		"inquirer": "^7.2.0",
-		"minimist": "^1.2.5"
-	}
+  "name": "mo-clean",
+  "version": "3.0.0",
+  "description": "simple node_modules remover",
+  "main": "mo-clean",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uttesh/mo.git"
+  },
+  "bin": {
+    "mo": "./mo.js",
+    "mo-clean": "./mo.js"
+  },
+  "keywords": [
+    "delete node_modules",
+    "node_modules",
+    "remove node_modules"
+  ],
+  "author": "Uttesh Kumar T.H.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uttesh/mo/issues"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "cli-color": "^2.0.0",
+    "clui": "^0.3.6",
+    "figlet": "^1.4.0",
+    "inquirer": "^7.2.0",
+    "minimist": "^1.2.5"
+  }
 }
