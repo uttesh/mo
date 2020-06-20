@@ -2,6 +2,10 @@
 
 mo-clean is cli application to removes the unused node_modules from the system
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/uttesh/mo/master/images/m-o.png" alt="logo" style="margin-left:20%" width="300"/>
+</p>
+
 ### installation
 
 Please install the package with flag '-g'.
@@ -41,3 +45,4 @@ after the option selected it will prompt the path for the search or delete
 ### Search Option
 
 It will search all the node_modules present under the provided path.
+![demo](https://raw.githubusercontent.com/uttesh/mo/master/images/search_screen.png)
