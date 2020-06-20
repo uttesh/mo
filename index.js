@@ -151,9 +151,29 @@ const questions = [
   },
 ];
 
+getSearchCommand = () => {
+  let command = "";
+  if (os.platform() === "win32") {
+    command = `FOR /d /r . %d in (node_modules) DO @IF EXIST "%d" echo %d `;
+  } else {
+    command = `find . -name "node_modules" -type d -prune -print | xargs du -chs`;
+  }
+  return command;
+};
+
+getRemoveCommand = () => {
+  let command = "";
+  if (os.platform() === "win32") {
+    command = `FOR /d /r . %d in (node_modules) DO @IF EXIST "%d" rd /s /q "%d" `;
+  } else {
+    command = `find . -name "node_modules" -type d -prune -print -exec rm -rf '{}' \;`;
+  }
+  return command;
+};
+
 searchfn = (path) => {
   const exec = require("child_process").exec;
-  let command = `FOR /d /r . %d in (node_modules) DO @IF EXIST "%d" echo %d `;
+  let command = getSearchCommand();
   let paths = [];
   exec(command, { cwd: path }, async (error, stdout, stderr) => {
     stdout.split("\n").forEach((item) => {
@@ -166,6 +186,18 @@ searchfn = (path) => {
     await processPath(paths);
   });
 };
+
+deletefn = (path) => {
+  const exec = require("child_process").exec;
+  let command = getRemoveCommand();
+  exec(command, { cwd: path }, async (error, stdout, stderr) => {
+    console.log("Deleted Successully: ", stdout);
+    if (error | stderr) {
+      console.err(error | stderr);
+    }
+  });
+};
+
 const run = async () => {
   const selection = await inquirer.prompt(questions);
   console.log("selection: ", selection);
@@ -173,6 +205,7 @@ const run = async () => {
     searchfn(selection.path);
   }
   if (selection.option === "2") {
+    deletefn(selection.path);
   }
 };
 
