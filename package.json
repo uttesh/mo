@@ -11,7 +11,8 @@
 		"url": "git+https://github.com/uttesh/mo.git"
 	},
 	"bin": {
-		"mo": "./index.js"
+		"mo": "./index.js",
+		"mo-clean": "./index.js"
 	},
 	"keywords": [
 		"delete node_modules",
