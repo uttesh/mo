@@ -8,9 +8,6 @@ const fs = require("fs");
 const path = require("path");
 const clui = require("clui");
 const os = require("os");
-const art = require("ascii-art");
-
-art.style("testing");
 
 /**
  * Get the size
