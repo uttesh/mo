@@ -1,6 +1,6 @@
 {
   "name": "mo-clean",
-  "version": "4.0.0",
+  "version": "4.0.2",
   "description": "simple node_modules remover",
   "main": "mo-clean",
   "scripts": {
