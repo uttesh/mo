@@ -3,7 +3,7 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/uttesh/mo/master/images/logo.png" alt="logo" style="margin-left:2%" width="300"/>
 </p>
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/uttesh/mo/graphs/commit-activity)
 <i>mo-clean</i> is cli application to removes the unused node_modules from the system.
 
 ## What it does?
