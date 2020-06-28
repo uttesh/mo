@@ -6,12 +6,15 @@
 
 <i>mo-clean</i> is cli application to removes the unused node_modules from the system.
 
-Its an 8 hours hackathon development on the weekend (20th June 2020!) to challenge myself to write an simple application from scratch to live.
+## What it does?
+It identify the unused node_modules of nodejs application based on the time of use and provide the details
+ 1. When the project was last used.
+ 2. How much memory node_modules taken.
+ 3. Remove those node_modules based on the permission.
 
-A little history on this utility app and the name is, I liked the character <b>'MO'</b> in the movie <b><i>'WALL E'</i></b>, MO is a simple cleaning robot in the movie. This 'MO' will clean the unused/practiced project node_modules.
-
-My system was always complaining about low memory, most of the time node_modules of the unused/praticed application taken more memory. To clean that I wrote this simple JS CLI.
-
+## How to use
+Just install the librarry, dont clone this repository and run! (you can do that but not required)
+  
 ## Installation
 
 Please install the package with flag '-g'.
