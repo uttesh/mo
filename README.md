@@ -4,7 +4,12 @@
 <img src="https://raw.githubusercontent.com/uttesh/mo/master/images/logo.png" alt="logo" style="margin-left:2%" width="300"/>
 </p>
 
+[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://gitHub.com/uttesh/)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/uttesh/mo/blob/master/LICENSEs)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/uttesh/mo/graphs/commit-activity)
+[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/uttesh/mo/issues/)
+[![HitCount](http://hits.dwyl.com/uttesh/mo.svg)](http://hits.dwyl.com/uttesh/mo)
+[![NPM](https://nodei.co/npm/mo-clean.png?downloads=true)](https://www.npmjs.com/package/mo-clean)  
 
 <i>mo-clean</i> is cli application to removes the unused node_modules from the system.
 
