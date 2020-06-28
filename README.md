@@ -7,7 +7,7 @@
 
 
 
-<p align="center"><a href="#nastyox"><img src="https://github.com/uttesh/mo/blob/master/images/mo.gif" width="100%"/></a><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/dropShadow.png" width="100%"/></a></p><br/>
+<p align="center"><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/mo.gif" width="100%"/></a><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/dropShadow.png" width="100%"/></a></p><br/>
 
 ## What it does?
 It identifies the unused node_modules of NodeJS application based on last used by days and provides the details
