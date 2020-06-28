@@ -1,11 +1,11 @@
-# mo.js
-
 <p align="center">
 <img src="https://raw.githubusercontent.com/uttesh/mo/master/images/logo.png" alt="logo" style="margin-left:2%" width="300"/>
 </p>
-  
 
-<i>mo-clean</i> is cli application to removes the unused node_modules from the system.
+<h1 align="center">mo-clean</h1>
+<p align="center"><i>mo-clean</i> is cli application to removes the unused node_modules from the system.</p>
+
+
 
 <p align="center"><a href="#nastyox"><img src="https://github.com/uttesh/mo/blob/master/images/mo.gif" width="100%"/></a><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/dropShadow.png" width="100%"/></a></p><br/>
 
