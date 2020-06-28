@@ -8,6 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const clui = require("clui");
 const os = require("os");
+const moment = require("moment");
 Spinner = clui.Spinner;
 let searchSpinner = new Spinner("Searching...  ", [
   "⣾",
@@ -116,10 +117,16 @@ printGenericTable = (data) => {
  * draw a result data row
  */
 Line = clui.Line;
-printTableRow = (data) => {
+printTableRow = (data, timetext) => {
   let tempValue = data[1].split(" ")[0];
   let value = tempValue > 200 ? chalk.red(data[1]) : chalk.green(data[1]);
-  new Line().padding(2).column(data[0], 80).column(value, 20).fill().output();
+  new Line()
+    .padding(2)
+    .column(data[0], 70)
+    .column(value, 10)
+    .column(timetext, 20)
+    .fill()
+    .output();
 };
 
 /**
@@ -149,7 +156,9 @@ getPathSize = async (path) => {
       temparray.push(path);
       let size = await formatBytes(totalSize);
       temparray.push(size);
-      printTableRow(temparray);
+      let lastUsed = getFileUpdatedDate(path);
+      let timetext = moment(lastUsed, "YYYYMMDD").fromNow();
+      printTableRow(temparray, timetext);
     } else {
       console.err(err);
     }
@@ -252,6 +261,14 @@ deletefn = (path) => {
       console.err(error | stderr);
     }
   });
+};
+/**
+ * Folder last used
+ * @param {*} path
+ */
+const getFileUpdatedDate = (path) => {
+  const stats = fs.statSync(path);
+  return stats.mtime;
 };
 /**
  * Initial execution of the process
