@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">mo-clean</h1>
-<p align="center"><i>mo-clean</i> is cli application to removes the unused node_modules from the system.</p>
+<p align="center"><i>mo-clean</i> is cli application to remove the unused node_modules from the system.</p>
 
 
 
