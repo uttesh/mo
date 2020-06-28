@@ -14,10 +14,10 @@
 <i>mo-clean</i> is cli application to removes the unused node_modules from the system.
 
 ## What it does?
-It identifies the unused node_modules of NodeJS application based on the time of use and provides the details
+It identifies the unused node_modules of NodeJS application based on last used by days and provides the details
  1. When the project was last used.
  2. How much memory node_modules taken.
- 3. Remove those node_modules based on the permission.
+ 3. Remove those node_modules from system.
 
 ## How to use
 Just install the library, don't clone this repository and run! (you can do that but not required)
