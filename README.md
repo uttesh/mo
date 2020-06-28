@@ -7,17 +7,17 @@
 <i>mo-clean</i> is cli application to removes the unused node_modules from the system.
 
 ## What it does?
-It identify the unused node_modules of nodejs application based on the time of use and provide the details
+It identifies the unused node_modules of NodeJS application based on the time of use and provides the details
  1. When the project was last used.
  2. How much memory node_modules taken.
  3. Remove those node_modules based on the permission.
 
 ## How to use
-Just install the librarry, dont clone this repository and run! (you can do that but not required)
+Just install the library, don't clone this repository and run! (you can do that but not required)
   
 ## Installation
 
-Please install the package with flag '-g'.
+Please install the package with the flag '-g'.
 
 ```
  npm install -g mo-clean
@@ -40,7 +40,7 @@ that will prompt the user with the below options for the search or delete the no
  | |  | | | |_| |  _   _   _
  |_|  |_|  \___/  (_) (_) (_)
 
-? Please select a option:
+? Please select an option:
 
  1) Search all the node_modules present in the path and show the total memory taken?
 
@@ -53,7 +53,7 @@ after the option selected it will prompt the path for the search or delete
 
 ## Search Option
 
-It will search all the node_modules present under the provided path.
+It will search for all the node_modules present under the provided path.
 
 ![demo](https://raw.githubusercontent.com/uttesh/mo/master/images/search_screen.png)
 
