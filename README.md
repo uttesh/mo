@@ -15,6 +15,11 @@ It identifies the unused node_modules of NodeJS application based on last used b
  2. How much memory node_modules taken.
  3. Remove those node_modules from system.
 
+## Supported OS
+ 1. Windows.
+ 2. Linux.
+ 3. Mac.
+
 ## How to use
 Just install the library, don't clone this repository and run! (you can do that but not required)
   
