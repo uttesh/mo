@@ -160,7 +160,7 @@ getPathSize = async (path) => {
       let timetext = moment(lastUsed, "YYYYMMDD").fromNow();
       printTableRow(temparray, timetext);
     } else {
-      console.err(err);
+      console.log(err);
     }
   });
 };
@@ -210,7 +210,7 @@ getSearchCommand = () => {
   if (os.platform() === "win32") {
     command = `FOR /d /r . %d in (node_modules) DO @IF EXIST "%d" echo %d `;
   } else {
-    command = `find . -name "node_modules" -type d -prune -print | xargs du -chs`;
+    command = `find . -name "node_modules" -type d -prune -print | xargs du -chs | xargs realpath`;
   }
   return command;
 };
@@ -223,7 +223,7 @@ getRemoveCommand = () => {
   if (os.platform() === "win32") {
     command = `FOR /d /r . %d in (node_modules) DO @IF EXIST "%d" rd /s /q "%d" `;
   } else {
-    command = `find . -name "node_modules" -type d -prune -print -exec rm -rf '{}' \;`;
+    command = `find . -name "node_modules" -type d -prune -print -exec rm -rf '{}' \\;`;
   }
   return command;
 };
@@ -238,8 +238,12 @@ searchfn = (path) => {
   let paths = [];
   exec(command, { cwd: path }, async (error, stdout, stderr) => {
     stdout.split("\n").forEach((item) => {
-      let line = item.substring(0, item.indexOf("node_modules") - 1);
+     let nmIndex = item.indexOf("node_modules");
+     let line = item.substring(0, nmIndex - 1);
+     //console.log('line:',line)
+     if(nmIndex!=-1){
       paths.push(line);
+     }
     });
     if (error | stderr) {
       console.err(error | stderr);
@@ -258,7 +262,7 @@ deletefn = (path) => {
     deleteSpinner.stop();
     console.log(chalk.green("Deleted node_modules files successfully."));
     if (error | stderr) {
-      console.err(error | stderr);
+      console.log(error | stderr);
     }
   });
 };
