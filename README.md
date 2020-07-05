@@ -5,24 +5,26 @@
 <h1 align="center">mo-clean</h1>
 <p align="center"><i>mo-clean</i> is cli application to remove the unused node_modules from the system.</p>
 
-
-
-<p align="center"><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/mo.gif" width="100%"/></a><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/dropShadow.png" width="100%"/></a></p><br/>
+<p align="center"><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/mo_4_0_4.gif" width="100%"/></a><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/dropShadow.png" width="100%"/></a></p><br/>
 
 ## What it does?
+
 It identifies the unused node_modules of NodeJS application based on last used by days and provides the details
- 1. When the project was last used.
- 2. How much memory node_modules taken.
- 3. Remove those node_modules from system.
+
+1.  When the project was last used.
+2.  How much memory node_modules taken.
+3.  Remove those node_modules from system.
 
 ## Supported OS
- 1. Windows.
- 2. Linux.
- 3. Mac.
+
+1.  Windows.
+2.  Linux.
+3.  Mac.
 
 ## How to use
+
 Just install the library, don't clone this repository and run! (you can do that but not required)
-  
+
 ## Installation
 
 Please install the package with the flag '-g'.
