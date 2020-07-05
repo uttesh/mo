@@ -153,10 +153,10 @@ processPath = async (paths) => {
   }
   new Line()
     .padding(2)
-    .column("Project", 30)
-    .column("Memory", 30)
-    .column("Time", 30)
-    .column("Path", 50)
+    .column("PROJECT", 30)
+    .column("MEMORY", 30)
+    .column("TIME", 30)
+    .column("PATH", 50)
     .fill()
     .output();
   for (let i = 0; i < uniqueItems.length; i++) {
