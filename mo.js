@@ -10,6 +10,7 @@ const clui = require("clui");
 const os = require("os");
 const moment = require("moment");
 Spinner = clui.Spinner;
+let totalSpaceTaken = 0;
 let searchSpinner = new Spinner("Searching...  ", [
   "⣾",
   "⣽",
@@ -113,6 +114,17 @@ printGenericTable = (data) => {
   console.log(line);
 };
 
+projectName = (path) => {
+  let lastIndex = 0;
+  if (os.platform() === "win32") {
+    lastIndex = path.lastIndexOf("\\");
+    return path.substring(lastIndex + 1, path.length);
+  } else {
+    lastIndex = path.lastIndexOf("/");
+    return path.substring(lastIndex + 1, path.length);
+  }
+};
+
 /**
  * draw a result data row
  */
@@ -122,9 +134,10 @@ printTableRow = (data, timetext) => {
   let value = tempValue > 200 ? chalk.red(data[1]) : chalk.green(data[1]);
   new Line()
     .padding(2)
-    .column(data[0], 70)
-    .column(value, 10)
-    .column(timetext, 20)
+    .column(projectName(data[0]), 30)
+    .column(value, 30)
+    .column(timetext, 30)
+    .column(data[0], 50)
     .fill()
     .output();
 };
@@ -136,8 +149,16 @@ processPath = async (paths) => {
   var uniqueItems = Array.from(new Set(paths));
   if (uniqueItems.length > 0) {
     searchSpinner.stop();
-    console.log("Found ", uniqueItems.length + " items");
+    console.log("\n\n Found ", uniqueItems.length + " items \n");
   }
+  new Line()
+    .padding(2)
+    .column("Project", 30)
+    .column("Memory", 30)
+    .column("Time", 30)
+    .column("Path", 50)
+    .fill()
+    .output();
   for (let i = 0; i < uniqueItems.length; i++) {
     let path = uniqueItems[i];
     if (path && path.length > 0) {
@@ -154,6 +175,7 @@ getPathSize = async (path) => {
     if (!err) {
       let temparray = [];
       temparray.push(path);
+      totalSpaceTaken = totalSpaceTaken + totalSize;
       let size = await formatBytes(totalSize);
       temparray.push(size);
       let lastUsed = getFileUpdatedDate(path);
@@ -191,7 +213,7 @@ const questions = [
   {
     name: "path",
     type: "input",
-    message: "Please provide the root path: \n",
+    message: "Please provide the root path: ",
     validate: function (value) {
       if (value.length) {
         return true;
@@ -238,12 +260,12 @@ searchfn = (path) => {
   let paths = [];
   exec(command, { cwd: path }, async (error, stdout, stderr) => {
     stdout.split("\n").forEach((item) => {
-     let nmIndex = item.indexOf("node_modules");
-     let line = item.substring(0, nmIndex - 1);
-     //console.log('line:',line)
-     if(nmIndex!=-1){
-      paths.push(line);
-     }
+      let nmIndex = item.indexOf("node_modules");
+      let line = item.substring(0, nmIndex - 1);
+      //console.log('line:',line)
+      if (nmIndex != -1) {
+        paths.push(line);
+      }
     });
     if (error | stderr) {
       console.err(error | stderr);
