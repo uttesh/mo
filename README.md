@@ -5,9 +5,12 @@
 <h1 align="center">mo-clean</h1>
 <p align="center"><i>mo-clean</i> is cli application to remove the unused node_modules from the system.</p>
 
-<p align="center"><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/mo_4_0_4.gif" width="100%"/></a><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/dropShadow.png" width="100%"/></a></p><br/>
+<p align="center"><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/mo.gif" width="100%"/></a><a href="#uttesh"><img src="https://github.com/uttesh/mo/blob/master/images/dropShadow.png" width="100%"/></a></p><br/>
+
 
 ## What it does?
+
+Helps Windows/Linux developers remove node_modules folder.
 
 It identifies the unused node_modules of NodeJS application based on last used by days and provides the details
 
